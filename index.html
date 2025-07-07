@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Menu FF v4 - Siêu Cấp</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background: linear-gradient(#000000, #1a0000);
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .menu {
+      background: rgba(30, 0, 0, 0.85);
+      padding: 30px 25px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px red;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 320px;
+      animation: fadeIn 1s ease;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: scale(0.95);}
+      to {opacity: 1; transform: scale(1);}
+    }
+    .switch-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #330000;
+      padding: 12px;
+      border-radius: 10px;
+    }
+    .switch-line input {
+      width: 45px;
+      height: 22px;
+      accent-color: red;
+    }
+    .note {
+      font-size: 13px;
+      color: #ccc;
+      text-shadow: 0 0 4px red;
+      min-height: 40px;
+    }
+    .footer {
+      text-align: center;
+      font-size: 12px;
+      color: #aaa;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="menu" id="menuBox">
+  <h3>🔥 Menu Free Fire v4 - X10 Triệu</h3>
+
+  <div class="switch-line">
+    Aimlock <input type="checkbox" onchange="showMsg('aimlock')">
+  </div>
+  <div class="switch-line">
+    Bám Tâm Đầu 70% <input type="checkbox" onchange="showMsg('aimhead')">
+  </div>
+  <div class="switch-line">
+    Regsuper Siêu Tối Ưu <input type="checkbox" onchange="showMsg('regsuper')">
+  </div>
+  <div class="switch-line">
+    Sensivity Nhạy Tuyệt Đối <input type="checkbox" onchange="showMsg('sensivity')">
+  </div>
+
+  <div class="note" id="msgArea">⚙️ Kích hoạt chức năng để xem mô tả</div>
+  <div class="footer">© 2025 Minh Duc (Tabi) | Phiên bản v4</div>
+</div>
+
+<script>
+const fileData = {
+  "aimlock": "IyBBSU1MT0NLIFgxMDAwMDAwMDAK" + "YWltbG9ja19tYXhib29zdF8xPXRydWUK" + "YWltbG9ja19tYXhib29zdF8yPXRydWUK" + "Ly8gQ29uZmlnIGJvb3N0ZWRg",
+  "aimhead": "IyBBSU1IRUFEIE1BWCBBVVRPCmFpbWhlYWRfbWF4Ym9vc3RfMT10cnVlCmFpbWhlYWRfbWF4Ym9vc3RfMj10cnVlCi8vIEhlYWRzaG90IGF1dG8gdG9w",
+  "regsuper": "IyBSRUdTVVBFUiBNSU5ILVhVCnJlZ3N1cGVyX3NpZ19zZXR0aW5nPXRydWUKcmVnc3VwZXJfbG93X2RlbGF5PXRydWUKLy8gT3B0aW1pemUgcmVnZWRpdA==",
+  "sensivity": "IyBTRU5TSVZJVFkgWFhYTUFYKQpzZW5zaXZpdHlfc3BlZWQ9dHJ1ZQpzZW5zaXZpdHlfc3BlZWQyPXRydWUKLy8gTWF4IHJlc3BvbnNpdmUgdG91Y2g="
+};
+
+function showMsg(key) {
+  let descs = {
+    "aimlock": "✅ Aimlock X10000000: Tự động khóa tâm cực mạnh",
+    "aimhead": "✅ Aimhead Auto: Headshot toàn bộ kẻ địch",
+    "regsuper": "✅ Regsuper: Tối ưu toàn bộ config súng + di chuyển",
+    "sensivity": "✅ Sensivity: Nhạy mượt không rung, không delay"
+  };
+  let decoded = atob(fileData[key]);
+  document.getElementById("msgArea").innerText = descs[key] + "\n(ĐÃ BẬT ✅)";
+  console.log(`Tác dụng "${key}":\n` + decoded);
+}
+</script>
+
+</body>
+</html>
